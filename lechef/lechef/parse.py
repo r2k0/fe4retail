@@ -31,10 +31,17 @@ INPUT = "../data/spy.csv"
 
 def parse(raw_file, delimiter):
 	""" parses a CSV to a JSON """
-	return data
+	f = open(raw_file)
+	csv_data = csv.reader(f, delimiter=delimiter)
+	pdata = []
+	fields = csv_data.next()
+
+	for r in csv_data:
+		print r
 
 def main():
-	spy_data = parse()
+	spy_data = parse(INPUT,",")
+	print spy_data
 	
 
 if __name__ == "__main__":
