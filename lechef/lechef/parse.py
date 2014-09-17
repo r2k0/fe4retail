@@ -24,20 +24,28 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
-
+import json
 import csv
 
 INPUT = "../data/spy.csv"
 
 def parse(raw_file, delimiter):
-	""" parses a CSV to a JSON """
+	""" parses CSV to JSON """
+	
 	f = open(raw_file)
+	
 	csv_data = csv.reader(f, delimiter=delimiter)
+	
 	pdata = []
+	
 	fields = csv_data.next()
-
-	for r in csv_data:
-		print r
+	
+	for r in csv_data: 
+		pdata.append(dict(zip(fields,r)))
+	
+	f.close()
+	
+	return pdata
 
 def main():
 	spy_data = parse(INPUT,",")

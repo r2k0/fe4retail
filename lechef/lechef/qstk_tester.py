@@ -32,5 +32,5 @@ import pandas as pd
 ls_symbols = ["SPY","QQQ","DIA"]
 dt_start = dt.datetime(2010,1,1)
 dt_end = dt.datetime(2014,1,1)
-
-
+dt_timeofday = dt.timedelta(hours=16)
+ltd_timestamps = du.getNYSEdays(dt_start, dt_end, dt_timeofday)
