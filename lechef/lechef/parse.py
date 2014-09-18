@@ -1,11 +1,9 @@
 """
 Financial Data Visualization Project
 
-Parse data from CSV file to render it in JSON,
-save to a database for calculation and charting.
+Parse data from CSV file 
 
 """
-import json
 import csv
 
 INPUT = "../data/spy.csv"
@@ -13,19 +11,23 @@ INPUT = "../data/spy.csv"
 def parse(raw_file, delimiter):
 	""" parses CSV to JSON """
 	
-	f = open(raw_file)
+	# open CSV file
+	csvfile = open(raw_file,'r')
+
+	# read CSV data
+	csv_data = csv.reader(csvfile, delimiter=delimiter)
 	
-	csv_data = csv.reader(f, delimiter=delimiter)
-	
+	# parsed data
 	pdata = []
 	
-	fields = csv_data.next()
-	
-	for r in csv_data: 
-		pdata.append(dict(zip(fields,r)))
-	
-	f.close()
-	
+	keys = csv_data.next()
+
+	for values in csv_data:
+		# append dict(key, values) to pdata list
+		# dictionary = dict(zip(keys, values))
+		pdata.append(dict(zip(keys, values)))
+
+	csvfile.close()
 	return pdata
 
 def main():
