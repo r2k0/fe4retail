@@ -1,8 +1,9 @@
 """
-Financial Data Visualization Project
+The MIT License (MIT)
+Copyright(c) 2014 Okkar Than
 
+This is just for Python tutorial and demonstration.
 Parse data from CSV file 
-
 """
 import csv
 

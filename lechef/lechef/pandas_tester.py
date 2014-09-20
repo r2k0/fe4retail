@@ -1,4 +1,8 @@
 """
+The MIT License (MIT)
+Copyright(c) 2014 Okkar Than
+
+This is just for Python tutorial and demonstration.
 To test if data sources are working properly using pandas
 """
 from pandas.io.data import DataReader
