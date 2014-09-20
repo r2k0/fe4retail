@@ -4,10 +4,12 @@ Copyright(c) 2014 Okkar Than
 
 This is just for Python tutorial and demonstration. 
 """
-
 import numpy as np
 import pandas as pd
 from parse import parse
+
+
+
 
 def calculate_daily(data):
 	"""	calculate daily returns """
@@ -15,13 +17,13 @@ def calculate_daily(data):
 
 	daily_ret = 0
 	prev_close = 0
-	
 	for kv in data:
 		if prev_close > 0: 
 			daily_ret = (float(kv["Close"]) / prev_close) - 1
 			daily_ret = round(daily_ret,5) * 100
 		print kv["Date"], kv["Close"], daily_ret
 		prev_close = float(kv["Close"])
+	
 
 
 def daily_returns():
@@ -34,7 +36,14 @@ def daily_returns():
 	#dia_data.reverse()
 	calculate_daily(spy_data)
 
-		
+def cumm_daily_returns():
+	""" cummulative daily returns """
+	return
+
+def port_daily_returns():
+	""" porfolio daily returns """
+	return
+
 def main():
 	daily_returns()
 
