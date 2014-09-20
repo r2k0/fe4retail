@@ -6,7 +6,7 @@ Parse data from CSV file
 """
 import csv
 
-INPUT = "../data/spy.csv"
+INPUT = "../data/spy_2013.csv"
 
 def parse(raw_file, delimiter):
 	""" parses CSV to JSON """
