@@ -6,6 +6,9 @@ This is just for Python tutorial and demonstration.
 To test if data sources are working properly using pandas
 """
 from pandas.io.data import DataReader
+import numpy as np
+import pandas as pd
+
 from datetime import datetime
 starting_date = datetime(2014,1,1)
 ending_date = datetime(2014,8,7)
@@ -16,7 +19,7 @@ def readIndexData(ticker):
 	#del ticker_df['Volume']
 	return ticker_df
 
-
+"""
 print "SPY historical data"
 print readIndexData("SPY")[:5] 
 
@@ -26,3 +29,12 @@ print readIndexData("QQQ")[:5]
 
 print "DIA historical data"
 print readIndexData("DIA")[:5]
+"""
+"""
+s = pd.Series(np.random.rand(4), name='dreturns sample')
+print s
+print s.describe()
+"""
+
+spy = readIndexData("SPY")
+print spy.describe()
