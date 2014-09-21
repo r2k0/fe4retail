@@ -11,6 +11,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
+def calculate_stdev(data):
+	return stdevdata
+
+
 def parse(raw_file, delimiter):
 	""" parses CSV to JSON """
 	# open CSV file
@@ -52,16 +56,20 @@ def chart_daily(data):
 	#for i in drl: print i
 	csvfile.close()
 
+def chart_iv(data):
+	return
 
 def daily_returns():
 	# get SPY, QQQ, DIA data from csv files
 	spy_data = parse("../data/spy_2013.csv", ",")
-	#qqq_data = parse("../data/qqq_2013.csv", ",")
-	#dia_data = parse("../data/dia_2013.csv", ",")
+	qqq_data = parse("../data/qqq_2013.csv", ",")
+	dia_data = parse("../data/dia_2013.csv", ",")
 	spy_data.reverse()	
-	#qqq_data.reverse()
-	#dia_data.reverse()
+	qqq_data.reverse()
+	dia_data.reverse()
 	chart_daily(spy_data)
+	chart_daily(qqq_data)
+	chart_daily(dia_data)
 
 def cumm_daily_returns():
 	""" cummulative daily returns """
@@ -70,6 +78,8 @@ def cumm_daily_returns():
 def port_daily_returns():
 	""" porfolio daily returns """
 	return
+
+
 
 def main():
 	daily_returns()
