@@ -9,6 +9,7 @@ To test if data sources are working properly using pandas
 from pandas.io.data import DataReader
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 from datetime import datetime
 starting_date = datetime(2013,1,1)
@@ -40,3 +41,8 @@ print spy_d.tail()
 
 print "SPY standard deviations of close prices and daily returns"
 print spy_d.std()
+
+#spy_d.plot(kind='bar')
+spy_d.plot(y='Daily Return')
+plt.axhline(0,color='k')
+plt.savefig('spy.png')
