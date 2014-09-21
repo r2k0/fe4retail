@@ -1,13 +1,18 @@
 Django==1.5.4
+Flask==0.10.1
+Flask-RESTful==0.2.12
 Jinja2==2.7.1
 Logbook==0.6.0
 MarkupSafe==0.18
 Pillow==2.5.3
 Pygments==1.6
 QSTK==0.2.8
+Quandl==2.0
 Scrapy==0.24.4
 Sphinx==1.2
 Twisted==14.0.0
+Werkzeug==0.9.6
+aniso8601==0.83
 beautifulsoup4==4.3.2
 cffi==0.8.6
 cryptography==0.5.4
@@ -17,6 +22,7 @@ finsymbols==0.3.5
 html==1.16
 httplib2==0.9
 ipython==2.1.0
+itsdangerous==0.24
 lxml==3.4.0
 matplotlib==1.4.x
 mercurial==2.8-20131101
@@ -28,6 +34,7 @@ parse==1.6.3
 patsy==0.2.1
 pika==0.9.13
 pyOpenSSL==0.14
+pyPdf==1.13
 pycparser==2.10
 pymc==2.3
 pyparsing==1.5.7
