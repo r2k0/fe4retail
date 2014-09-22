@@ -17,6 +17,7 @@ ending_date = datetime(2013,12,1)
 
 
 def readTickerData(ticker):
+    """ read equity data and return as dataframe """
     ticker_df = DataReader(ticker, "yahoo", starting_date, ending_date)
     del ticker_df['Volume']
     del ticker_df['Open']
@@ -26,23 +27,27 @@ def readTickerData(ticker):
     return ticker_df
 
 def daily_return(t_df):
+    """ add daily return column to the data frame """
     dlyr = t_df['Close'].shift(1) / t_df['Close'] - 1
     t_df['Daily Return'] = dlyr * 100
     return t_df
     
-spy = readTickerData("SPY")
 
-print "SPY historical data"
-print spy.tail()
+def main():
+    spy = readTickerData("SPY")
+    spy_d = daily_return(spy)
+    
+    #print "SPY historical data"
+    #print spy.tail()
+    #print "SPY daily retrun %"
+    #print spy_d.tail()
+    #print "SPY standard deviations of close prices and daily returns"
+    #print spy_d.std()
+    # plot daily return percent
+    
+    spy_d.plot(y='Daily Return')
+    plt.axhline(0,color='k')
+    plt.savefig('spy.png')
 
-spy_d = daily_return(spy)
-print "SPY daily retrun %"
-print spy_d.tail()
-
-print "SPY standard deviations of close prices and daily returns"
-print spy_d.std()
-
-#spy_d.plot(kind='bar')
-spy_d.plot(y='Daily Return')
-plt.axhline(0,color='k')
-plt.savefig('spy.png')
+if __name__ == "__main__":
+    main()
