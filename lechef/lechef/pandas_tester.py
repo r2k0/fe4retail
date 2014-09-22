@@ -5,7 +5,7 @@ Copyright(c) 2014 Okkar Than
 This is just for Python tutorial and demonstration.
 To test if data sources are working properly using pandas
 """
-
+from math import sqrt
 from pandas.io.data import DataReader
 import numpy as np
 import pandas as pd
@@ -60,6 +60,11 @@ def main():
     print dia_d.std()
     print "TLT standard deviations of close prices and daily returns"
     print tlt_d.std()
+
+    #sharpe ratio = sqrt(250)*average daily return / std of daily returns
+    # 250 total trading days for one year
+    #spy_sr = sqrt(250) * spy_d['Daily Return'].mean()/spy_d['Daily Return'].std()
+    #print "Sharpe ratio for SPY:", spy_sr
 
     # plot daily return percent
     #spy_d.plot(y='Daily Return')
