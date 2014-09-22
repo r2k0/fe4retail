@@ -51,15 +51,13 @@ def main():
     #print "SPY daily retrun %"
     #print spy_d.tail()
     
+    # Standard Deviation of Close and Daily Return
     print "SPY standard deviations of close prices and daily returns"
     print spy_d.std()
-    
     print "QQQ standard deviations of close prices and daily returns"
     print qqq_d.std()
-    
     print "DIA standard deviations of close prices and daily returns"
     print dia_d.std()
-
     print "TLT standard deviations of close prices and daily returns"
     print tlt_d.std()
 
@@ -88,7 +86,8 @@ def main():
 
     ax4.set_title('TLT Daily Returns')
     tlt_d.plot(ax=ax4,y='Daily Return')
-   
+  
+    # tight_layout automatically adjuts subplot params
     plt.tight_layout()
     
     plt.savefig('charts.png')
