@@ -36,18 +36,63 @@ def daily_return(t_df):
 def main():
     spy = readTickerData("SPY")
     spy_d = daily_return(spy)
+
+    qqq = readTickerData("QQQ")
+    qqq_d = daily_return(qqq)
     
+    dia = readTickerData("DIA")
+    dia_d = daily_return(dia)
+    
+    tlt = readTickerData("tlt")
+    tlt_d = daily_return(tlt)
+
     #print "SPY historical data"
     #print spy.tail()
     #print "SPY daily retrun %"
     #print spy_d.tail()
-    #print "SPY standard deviations of close prices and daily returns"
-    #print spy_d.std()
-    # plot daily return percent
     
-    spy_d.plot(y='Daily Return')
-    plt.axhline(0,color='k')
-    plt.savefig('spy.png')
+    print "SPY standard deviations of close prices and daily returns"
+    print spy_d.std()
+    
+    print "QQQ standard deviations of close prices and daily returns"
+    print qqq_d.std()
+    
+    print "DIA standard deviations of close prices and daily returns"
+    print dia_d.std()
+
+    print "TLT standard deviations of close prices and daily returns"
+    print tlt_d.std()
+
+    # plot daily return percent
+    #spy_d.plot(y='Daily Return')
+    #plt.axhline(0,color='g')
+    #plt.savefig('spy.png')
+    fig = plt.figure()
+    ax1 = fig.add_subplot(2,2,1)
+    ax2 = fig.add_subplot(2,2,2)
+    ax3 = fig.add_subplot(2,2,3)
+    ax4 = fig.add_subplot(2,2,4)
+
+    
+    ax1.set_title('SPY Daily Returns')
+    spy_d.plot(ax=ax1,y='Daily Return')
+    plt.savefig('charts.png')
+
+    ax2.set_title('QQQ Daily Returns')
+    qqq_d.plot(ax=ax2,y='Daily Return')
+    plt.savefig('charts.png')
+
+    ax3.set_title('DIA Daily Returns')
+    dia_d.plot(ax=ax3,y='Daily Return')
+    plt.savefig('charts.png')
+
+    ax4.set_title('TLT Daily Returns')
+    tlt_d.plot(ax=ax4,y='Daily Return')
+   
+    plt.tight_layout()
+    
+    plt.savefig('charts.png')
+
 
 if __name__ == "__main__":
     main()
