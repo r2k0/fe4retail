@@ -53,22 +53,27 @@ def main():
     tlt_d = chart_data("TLT")
     
     fig = plt.figure()
-    gs = gridspec.GridSpec(2,2)
-    ax_list=[fig.add_subplot(ss) for ss in gs]
+    ax1 = fig.add_subplot(2,2,1)
+    ax2 = fig.add_subplot(2,2,2)
+    ax3 = fig.add_subplot(2,2,3)
+    ax4 = fig.add_subplot(2,2,4)
 
-    ax_list[0].plot(spy_d)
-    ax_list[1].plot(qqq_d)
-    ax_list[2].plot(dia_d)
-    ax_list[3].plot(tlt_d)
-
-    ax_list[0].set_title('SPY')
-    ax_list[1].set_title('QQQ')
-    ax_list[2].set_title('DIA')
-    ax_list[3].set_title('TLT')
-
+    ax1.set_title('SPY Daily Returns')
+    spy_d.plot(ax=ax1,y='Daily Return')
     plt.savefig('daily_return.png')
     
+    ax2.set_title('QQQ Daily Returns')
+    qqq_d.plot(ax=ax2,y='Daily Return')
+    plt.savefig('daily_return.png')
 
+    ax3.set_title('DIA Daily Returns')
+    dia_d.plot(ax=ax3,y='Daily Return')
+    plt.savefig('daily_return.png')
+    
+    ax4.set_title('TLT Daily Returns')
+    tlt_d.plot(ax=ax4,y='Daily Return')
+    plt.tight_layout() 
+    plt.savefig('daily_return.png')
 
 if __name__ == "__main__":
     main()
