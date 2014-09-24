@@ -19,11 +19,11 @@ ending_date = datetime(2013,12,1)
 def readTickerData(ticker):
     """ read equity data and return as dataframe """
     ticker_df = DataReader(ticker, "yahoo", starting_date, ending_date)
-    del ticker_df['Volume']
-    del ticker_df['Open']
-    del ticker_df['High']
-    del ticker_df['Low']
-    del ticker_df['Adj Close']
+    #del ticker_df['Volume']
+    #del ticker_df['Open']
+    #del ticker_df['High']
+    #del ticker_df['Low']
+    #del ticker_df['Adj Close']
     return ticker_df
 
 def daily_return(t_df):
@@ -31,11 +31,18 @@ def daily_return(t_df):
     dlyr = t_df['Close'].shift(1) / t_df['Close'] - 1
     t_df['Daily Return'] = dlyr * 100
     return t_df
-    
+
+def moving_average(t_df):
+    adjclose = t_df['Adj Close']
+    mavg = pd.rolling_mean(adjclose, 40)
+    t_df['MA'] = mavg
+    print t_df.tail()
+    return t_df
 
 def main():
     spy = readTickerData("SPY")
     spy_d = daily_return(spy)
+    moving_average(spy)
 
     qqq = readTickerData("QQQ")
     qqq_d = daily_return(qqq)
