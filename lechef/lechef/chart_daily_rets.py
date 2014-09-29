@@ -5,7 +5,7 @@ Copyright(c) 2014 Okkar Than
 """
 
 from pandas.io.data import DataReader
-import numpy as np
+#import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
