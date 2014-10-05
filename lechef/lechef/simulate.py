@@ -32,6 +32,13 @@ def simulate(startdate, enddate, tickers, allocations):
     ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
     ldf_data = c_dataobject.get_data(ldt_timestamps, ls_symbols, ls_keys)
     d_data = dict(zip(ls_keys, ldf_data))
+    
+    (t0, t1, t2, t3) = tickers
+    
+    vol = .01
+    daily_ret = 1.0
+    sharpe = 1.0
+    return vol, daily_ret, sharpe, cum_ret
 
 
 def chart_data(ticker):
