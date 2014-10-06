@@ -9,8 +9,8 @@ import QSTK.qstkutil.tsutil as tsu
 import QSTK.qstkutil.DataAccess as da
 
 import datetime as dt
-starting_date = dt.datetime(2013,1,1)
-ending_date = dt.datetime(2013,12,1)
+starting_date = dt.datetime(2010,1,1)
+ending_date = dt.datetime(2011,1,1)
 
 
 def simulate(startdate, enddate, tickers, allocations):
